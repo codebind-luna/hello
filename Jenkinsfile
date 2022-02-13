@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        go 'go1.16'
+        go 'go1.14'
     }
     environment {
         GO114MODULE = 'on'
@@ -15,5 +15,21 @@ pipeline {
                 sh 'go get -u golang.org/x/lint/golint'
             }
         }
-    } 
+        stage('Build') {
+            steps {
+                sh 'pwd'
+                echo 'Compiling and building'
+                sh 'go build'
+            }
+        }
+        stage('Test'){
+            steps {
+                sh 'pwd'
+                echo 'Running vetting'
+                sh 'go vet .'
+                echo 'Running linting'
+                sh 'golint .'
+            }
+        }
+    }
 }
