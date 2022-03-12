@@ -12,6 +12,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	if _, err := w.Write([]byte("welcome home")); err != nil {
 		log.Error(err)
 	}
+	log.Info("Welcome to Our Homepage")
 }
 func main() {
 	log.WithFields(log.Fields{
