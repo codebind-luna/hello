@@ -9,10 +9,10 @@ import (
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	log.Info("home handler got called")
-	if _, err := w.Write([]byte("welcome home my dear")); err != nil {
+	if _, err := w.Write([]byte("welcome To Our HomePage")); err != nil {
 		log.Error(err)
 	}
-	log.Info("You have visited our homepage")
+	log.Info("Welcome To Our Homepage")
 }
 func main() {
 	log.WithFields(log.Fields{
